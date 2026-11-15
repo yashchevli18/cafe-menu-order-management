@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #f8f5ef;
+  --color-brown: #6f4e37;
+  --color-brown-dark: #5a3e2b;
+  --color-espresso: #2c211b;
+  --color-caramel: #c58b55;
+  --color-caramel-dark: #a8723f;
+  --color-beige: #e8dccb;
+  --color-beige-light: #f1e9dd;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+
+  --shadow-soft: 0 10px 30px -12px rgb(44 33 27 / 0.18);
+  --shadow-lift: 0 22px 40px -18px rgb(44 33 27 / 0.32);
+
+  --animate-fade-in: fade-in 0.25s ease-out both;
+  --animate-fade-up: fade-up 0.45s ease-out both;
+  --animate-slide-in-right: slide-in-right 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-scale-in: scale-in 0.2s ease-out both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-espresso antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-variant-numeric: lining-nums;
+  }
+
+  ::selection {
+    @apply bg-caramel/30;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-caramel;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold tracking-[0.2em] text-caramel uppercase;
+  }
+
+  .card {
+    @apply rounded-3xl border border-beige/70 bg-white shadow-soft;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
