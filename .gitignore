@@ -8,6 +8,7 @@ node_modules/
 
 # Private, local-only files
 DEV_NOTES.md
+TEST_CASES.md
 
 # Builds
 dist/
