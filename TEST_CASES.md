@@ -19,7 +19,8 @@ Use this checklist to verify every flow of the application, end to end. Fill in 
 **Phone testing rules:**
 - The phone must be on the **same Wi-Fi** as the PC (mobile data won't work).
 - Print or display the QR codes from `/table-qr`. The URL field there must show the Wi-Fi address, **not** `localhost`.
-- If the phone can't open the page, allow Node.js through Windows Firewall (see the README, section *Testing on a phone*).
+- If the phone can't open the page, allow the port through Windows Firewall from an **admin** PowerShell: `New-NetFirewallRule -DisplayName "Brew & Bean dev (5173)" -Direction Inbound -Protocol TCP -LocalPort 5173 -Action Allow -Profile Private,Public`
+- On the live site, generate the codes at https://cafe-menu-order-management.vercel.app/table-qr instead; they also work on mobile data.
 
 ---
 
